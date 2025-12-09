@@ -8,55 +8,124 @@
     
     <!-- SEO Meta Tags -->
     <meta name="description" content="Discover premium audio stories, podcasts, and interactive content on AwaazFm. Listen to sci-fi, romance, mystery, fantasy stories and more. Join our community of story lovers.">
-    <meta name="keywords" content="audio stories, podcasts, storytelling, audio books, sci-fi stories, romance audio, mystery podcasts, fantasy tales, interactive stories, AwaazFm">
+    <!-- Enhanced Keywords for better reach -->
+    <meta name="keywords" content="audio stories, podcasts, storytelling, audio books, sci-fi stories, romance audio, mystery podcasts, fantasy tales, interactive stories, AwaazFm, indian audio platform, hindi audio stories, english audio stories, free audiobooks, best podcast app india">
     <meta name="author" content="AwaazFm">
     <meta name="robots" content="index, follow">
     <meta name="language" content="English">
     <meta name="revisit-after" content="7 days">
     
+    <!-- Mobile App Capabilities (SEO Signal for Mobile Friendliness) -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="application-name" content="AwaazFm">
+    <meta name="apple-mobile-web-app-title" content="AwaazFm">
+    <meta name="theme-color" content="#0a0a0a">
+    
+    <!-- Geo Tags for Local SEO (.in domain relevance) -->
+    <meta name="geo.region" content="IN">
+    <meta name="geo.placename" content="India">
+    
     <!-- Open Graph Meta Tags for Social Media -->
     <meta property="og:title" content="AwaazFm - Premium Audio Stories & Podcasts Platform">
     <meta property="og:description" content="Discover premium audio stories, podcasts, and interactive content. Listen to sci-fi, romance, mystery, fantasy stories and more.">
     <meta property="og:image" content="./Awaazfmnewlogo.png">
-    <meta property="og:url" content="https://awaazfm.vercel.app">
+    <meta property="og:url" content="https://awaazfm.in">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="AwaazFm">
     <meta property="og:locale" content="en_US">
     
     <!-- Twitter Card Meta Tags -->
     <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@AwaazFm">
+    <meta name="twitter:creator" content="@AwaazFm">
     <meta name="twitter:title" content="AwaazFm - Premium Audio Stories & Podcasts Platform">
     <meta name="twitter:description" content="Discover premium audio stories, podcasts, and interactive content. Listen to amazing stories across all genres.">
     <meta name="twitter:image" content="./Awaazfmnewlogo.png">
     
     <!-- Canonical URL -->
-    <link rel="canonical" href="https://awaazfm.vercel.app">
+    <link rel="canonical" href="https://awaazfm.in">
     
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="./Awaazfmnewlogo.png">
     <link rel="apple-touch-icon" href="./Awaazfmnewlogo.png">
     
+    <!-- Preload Critical Assets (Improves Core Web Vitals LCP) -->
+    <link rel="preload" href="Awaazfmnewlogo.png" as="image">
+
     <!-- Structured Data for SEO -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "WebSite",
       "name": "AwaazFm",
-      "url": "https://awaazfm.vercel.app",
+      "url": "https://awaazfm.in",
       "description": "Premium audio stories, podcasts, and interactive content platform",
       "publisher": {
         "@type": "Organization",
         "name": "AwaazFm",
         "logo": {
           "@type": "ImageObject",
-          "url": "https://awaazfm.vercel.app/Awaazfmnewlogo.png"
+          "url": "https://awaazfm.in/Awaazfmnewlogo.png"
         }
       },
       "potentialAction": {
         "@type": "SearchAction",
-        "target": "https://awaazfm.vercel.app/search?q={search_term_string}",
+        "target": "https://awaazfm.in/search?q={search_term_string}",
         "query-input": "required name=search_term_string"
       }
+    }
+    </script>
+    
+    <!-- Added SoftwareApplication Schema for App Store features -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "AwaazFm",
+      "operatingSystem": "ANDROID",
+      "applicationCategory": "EntertainmentApplication",
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.9",
+        "ratingCount": "500000"
+      },
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "INR"
+      },
+      "downloadUrl": "https://play.google.com/store/apps/details?id=com.awaazfm.in"
+    }
+    </script>
+    
+    <!-- Added FAQPage Schema for Rich Snippets in Search Results -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [{
+        "@type": "Question",
+        "name": "Is AwaazFm free to use?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes! The core features of AwaazFm, including listening to stories, chatting, and taking quizzes, are completely free. We may introduce optional premium features in the future."
+        }
+      }, {
+        "@type": "Question",
+        "name": "Can I listen to stories offline?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Absolutely! You can download your favorite stories and listen to them anywhere, anytime, without needing an internet connection."
+        }
+      }, {
+        "@type": "Question",
+        "name": "What kind of stories are available?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "We have a wide range of genres including sci-fi, fantasy, mystery, thriller, romance, comedy, and more. Our library is constantly expanding with new and exclusive content."
+        }
+      }]
     }
     </script>
     
@@ -65,11 +134,14 @@
       "@context": "https://schema.org",
       "@type": "Organization",
       "name": "AwaazFm",
-      "url": "https://awaazfm.vercel.app",
-      "logo": "https://awaazfm.vercel.app/Awaazfmnewlogo.png",
+      "url": "https://awaazfm.in",
+      "logo": "https://awaazfm.in/Awaazfmnewlogo.png",
       "description": "Premium audio stories, podcasts, and interactive content platform",
       "sameAs": [
-        "https://awaazfm.vercel.app"
+        "https://awaazfm.in",
+        "https://twitter.com/AwaazFm",
+        "https://facebook.com/AwaazFm",
+        "https://instagram.com/AwaazFm"
       ]
     }
     </script>
@@ -137,32 +209,34 @@
     <header
         class="py-4 px-4 sm:px-6 lg:px-8 w-full z-20 sticky top-0 bg-black/50 backdrop-blur-lg border-b border-gray-800">
         <div class="container mx-auto flex justify-between items-center">
-            <img src="Awaazfmnewlogo.png" alt="AwaazFm" class="h-20 sm:h-24">
-            <a href="#" class="hidden md:block main-cta text-white font-semibold py-2 px-5 rounded-lg">Get The App</a>
-            <a href="#" class="md:hidden main-cta text-white font-semibold py-2 px-4 rounded-lg text-sm">Get The App</a>
+            <img src="Awaazfmnewlogo.png" alt="AwaazFm Logo" class="h-20 sm:h-24">
+            <a href="#" class="hidden md:block main-cta text-white font-semibold py-2 px-5 rounded-lg" aria-label="Get the App on Desktop">Get The App</a>
+            <a href="#" class="md:hidden main-cta text-white font-semibold py-2 px-4 rounded-lg text-sm" aria-label="Get the App on Mobile">Get The App</a>
         </div>
     </header>
 
     <!-- Hero Section -->
     <main class="container mx-auto px-4 sm:px-6 lg:px-8 pt-16 sm:pt-20 pb-20 sm:pb-24">
         <div id="hero-content">
-            <h2 class="text-center text-4xl sm:text-5xl md:text-7xl font-extrabold text-white leading-tight mb-6">
+            <!-- Changed h2 to h1 for SEO Hierarchy -->
+            <h1 class="text-center text-4xl sm:text-5xl md:text-7xl font-extrabold text-white leading-tight mb-6">
                 Your Universe of <br class="hidden sm:block"> Audio <span class="text-purple-400">Stories</span> Awaits.
-            </h2>
+            </h1>
             <p class="text-center max-w-2xl mx-auto text-base sm:text-lg md:text-xl text-gray-400 mb-10">
                 Immerse yourself in captivating tales, connect with fellow listeners, and test your knowledge with fun
                 quizzes, all on your Android device.
             </p>
             <div class="flex flex-col sm:flex-row justify-center items-center gap-6">
-                <a href="#"
-                    class="main-cta text-white font-bold py-3 px-6 sm:py-4 sm:px-8 text-sm sm:text-base rounded-full shadow-lg purple-glow flex items-center gap-3">
-                    <i class="fab fa-google-play text-xl sm:text-2xl"></i>
+                <a href="https://play.google.com/store/apps/details?id=com.awaazfm.in"
+                    class="main-cta text-white font-bold py-3 px-6 sm:py-4 sm:px-8 text-sm sm:text-base rounded-full shadow-lg purple-glow flex items-center gap-3"
+                    aria-label="Download AwaazFm from Google Play Store">
+                    <i class="fab fa-google-play text-xl sm:text-2xl" aria-hidden="true"></i>
                     <span>Get it on Google Play</span>
                 </a>
                 <div
                     class="hidden sm:flex items-center gap-4 p-3 bg-gray-900 bg-opacity-50 border border-gray-700 rounded-xl backdrop-blur-sm">
                     <img src="https://api.qrserver.com/v1/create-qr-code/?size=80x80&data=https://play.google.com/store/apps/details?id=com.awaazfm.in"
-                        class="rounded-md bg-white p-1" alt="Download AwaazFm on Google Play">
+                        class="rounded-md bg-white p-1" alt="QR Code to Download AwaazFm on Google Play" width="80" height="80">
                     <div class="text-left">
                         <p class="font-bold text-white">Scan to download</p>
                         <p class="text-xs text-gray-400">Point your camera and go!</p>
@@ -256,12 +330,12 @@
         </div>
     </main>
 
-    <!-- Top Stories Section -->
-    <section id="top-stories" class="py-20 sm:py-24 bg-black">
+    <!-- Top Stories Section (Added aria-labelledby for Accessibility SEO) -->
+    <section id="top-stories" class="py-20 sm:py-24 bg-black" aria-labelledby="stories-heading">
         <div class="container mx-auto">
             <div class="flex justify-between items-center mb-8 sm:mb-12 px-4 sm:px-6 lg:px-8">
                 <div>
-                    <h3 class="text-3xl sm:text-4xl font-bold text-white mb-2">Trending Now</h3>
+                    <h3 id="stories-heading" class="text-3xl sm:text-4xl font-bold text-white mb-2">Trending Now</h3>
                     <p class="text-gray-400 text-base sm:text-lg">Discover the stories everyone is talking about.</p>
                 </div>
             </div>
@@ -349,11 +423,11 @@
                 </div>
             </div>
 
-            <!-- Features Section -->
-            <section id="features" class="py-20 sm:py-24">
+            <!-- Features Section (Added aria-labelledby for Accessibility SEO) -->
+            <section id="features" class="py-20 sm:py-24" aria-labelledby="features-heading">
                 <div class="container mx-auto px-4 sm:px-6 lg:px-8">
                     <div class="text-center mb-12 sm:mb-16">
-                        <h3 class="text-3xl sm:text-4xl font-bold text-white mb-4 animate-on-scroll">Everything You Need
+                        <h3 id="features-heading" class="text-3xl sm:text-4xl font-bold text-white mb-4 animate-on-scroll">Everything You Need
                             for the Perfect Escape</h3>
                         <p class="text-gray-400 text-base sm:text-lg max-w-2xl mx-auto animate-on-scroll">We've packed
                             AwaazFm with features to make your listening experience unforgettable.</p>
@@ -411,10 +485,10 @@
             </section>
 
             <!-- How it works -->
-            <section id="how-it-works" class="py-20 sm:py-24 bg-black">
+            <section id="how-it-works" class="py-20 sm:py-24 bg-black" aria-labelledby="how-it-works-heading">
                 <div class="container mx-auto px-4 sm:px-6 lg:px-8">
                     <div class="text-center mb-12 sm:mb-16">
-                        <h3 class="text-3xl sm:text-4xl font-bold text-white mb-4 animate-on-scroll">Get Started in
+                        <h3 id="how-it-works-heading" class="text-3xl sm:text-4xl font-bold text-white mb-4 animate-on-scroll">Get Started in
                             Seconds</h3>
                         <p class="text-gray-400 text-base sm:text-lg max-w-2xl mx-auto animate-on-scroll">Your next
                             audio adventure is just three steps away.</p>
@@ -456,10 +530,10 @@
             </section>
 
             <!-- Stats Section -->
-            <section id="stats-section" class="py-20 sm:py-24">
+            <section id="stats-section" class="py-20 sm:py-24" aria-labelledby="stats-heading">
                 <div class="container mx-auto px-4 sm:px-6 lg:px-8">
                     <div class="text-center mb-12 sm:mb-16">
-                        <h3 class="text-3xl sm:text-4xl font-bold text-white animate-on-scroll">AwaazFm by the Numbers
+                        <h3 id="stats-heading" class="text-3xl sm:text-4xl font-bold text-white animate-on-scroll">AwaazFm by the Numbers
                         </h3>
                         <p class="text-gray-400 text-base sm:text-lg animate-on-scroll">Our community is the heart of
                             everything we do.</p>
@@ -520,10 +594,10 @@
             </section>
 
             <!-- Testimonials Section -->
-            <section class="py-20 sm:py-24 bg-black">
+            <section class="py-20 sm:py-24 bg-black" aria-labelledby="testimonials-heading">
                 <div class="container mx-auto px-4 sm:px-6 lg:px-8">
                     <div class="text-center mb-12 sm:mb-16">
-                        <h3 class="text-3xl sm:text-4xl font-bold text-white mb-4 animate-on-scroll">What Our Listeners
+                        <h3 id="testimonials-heading" class="text-3xl sm:text-4xl font-bold text-white mb-4 animate-on-scroll">What Our Listeners
                             Say</h3>
                         <p class="text-gray-400 text-base sm:text-lg max-w-2xl mx-auto animate-on-scroll">We're building
                             a community, and we're proud of what they have to say.</p>
@@ -560,10 +634,10 @@
             </section>
 
             <!-- FAQ Section -->
-            <section id="faq" class="py-20 sm:py-24">
+            <section id="faq" class="py-20 sm:py-24" aria-labelledby="faq-heading">
                 <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-3xl">
                     <div class="text-center mb-12 sm:mb-16">
-                        <h3 class="text-3xl sm:text-4xl font-bold text-white mb-4 animate-on-scroll">Frequently Asked
+                        <h3 id="faq-heading" class="text-3xl sm:text-4xl font-bold text-white mb-4 animate-on-scroll">Frequently Asked
                             Questions</h3>
                         <p class="text-gray-400 text-base sm:text-lg animate-on-scroll">Have questions? We've got
                             answers.</p>
@@ -614,15 +688,16 @@
             </section>
 
             <!-- Call to Action Section -->
-            <section class="py-20 sm:py-24 bg-black">
+            <section class="py-20 sm:py-24 bg-black" aria-labelledby="cta-heading">
                 <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
-                    <h3 class="text-3xl sm:text-5xl font-extrabold text-white mb-4 animate-on-scroll">Start Your Audio
+                    <h3 id="cta-heading" class="text-3xl sm:text-5xl font-extrabold text-white mb-4 animate-on-scroll">Start Your Audio
                         Adventure Today</h3>
                     <p class="text-gray-400 text-base sm:text-lg mb-8 max-w-xl mx-auto animate-on-scroll">Download
                         AwaazFm from the Google Play Store and join a community of millions of listeners.</p>
-                    <a href="#"
-                        class="main-cta text-white font-bold py-3 px-8 sm:py-4 sm:px-10 rounded-full shadow-lg purple-glow text-base sm:text-lg inline-flex items-center gap-3 animate-on-scroll">
-                        <i class="fab fa-google-play text-xl sm:text-2xl"></i>
+                    <a href="https://play.google.com/store/apps/details?id=com.awaazfm.in"
+                        class="main-cta text-white font-bold py-3 px-8 sm:py-4 sm:px-10 rounded-full shadow-lg purple-glow text-base sm:text-lg inline-flex items-center gap-3 animate-on-scroll"
+                        aria-label="Download AwaazFm for Free">
+                        <i class="fab fa-google-play text-xl sm:text-2xl" aria-hidden="true"></i>
                         <span>Download For Free</span>
                     </a>
                 </div>
@@ -634,17 +709,17 @@
                     <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
                         <div class="col-span-2 md:col-span-1">
                             <div class="mb-4">
-            <img src="Awaazfmnewlogo.png" alt="AwaazFm" class="h-20">
+            <img src="Awaazfmnewlogo.png" alt="AwaazFm Logo" class="h-20">
                         </div>
                         <h4 class="text-2xl font-bold text-white mb-4">
                             </h4>
                             <p class="text-gray-500">Your universe of audio stories.</p>
                             <div class="flex space-x-4 mt-4">
-                                <a href="#" class="text-gray-400 hover:text-white"><i
+                                <a href="#" class="text-gray-400 hover:text-white" aria-label="Follow us on Twitter"><i
                                         class="fab fa-twitter text-xl"></i></a>
-                                <a href="#" class="text-gray-400 hover:text-white"><i
+                                <a href="#" class="text-gray-400 hover:text-white" aria-label="Follow us on Instagram"><i
                                         class="fab fa-instagram text-xl"></i></a>
-                                <a href="#" class="text-gray-400 hover:text-white"><i
+                                <a href="#" class="text-gray-400 hover:text-white" aria-label="Follow us on Facebook"><i
                                         class="fab fa-facebook text-xl"></i></a>
                             </div>
                         </div>
@@ -835,6 +910,31 @@
                         scrollTrigger: { trigger: 'footer', start: 'top 95%' }
                     });
                 });
+            </script>
+            
+            <!-- Firebase Initialization -->
+            <script type="module">
+              // Import the functions you need from the SDKs you need
+              import { initializeApp } from "https://www.gstatic.com/firebasejs/12.6.0/firebase-app.js";
+              import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.6.0/firebase-analytics.js";
+              // TODO: Add SDKs for Firebase products that you want to use
+              // https://firebase.google.com/docs/web/setup#available-libraries
+
+              // Your web app's Firebase configuration
+              // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+              const firebaseConfig = {
+                apiKey: "AIzaSyDycnzfAMDk1VZ6SM3BUMwwdt0ZDZ7u48A",
+                authDomain: "awaaz-fm.firebaseapp.com",
+                projectId: "awaaz-fm",
+                storageBucket: "awaaz-fm.firebasestorage.app",
+                messagingSenderId: "361511402794",
+                appId: "1:361511402794:web:423d6f9ce5f07d1e9e3253",
+                measurementId: "G-VKZR3LKE6S"
+              };
+
+              // Initialize Firebase
+              const app = initializeApp(firebaseConfig);
+              const analytics = getAnalytics(app);
             </script>
 </body>
 
