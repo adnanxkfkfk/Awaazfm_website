@@ -1,0 +1,783 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DorkSense Media | Digital Marketing That Actually Converts</title>
+    <meta name="description" content="DorkSense Media: Bold digital marketing strategies, SEO, and paid media. We make ads that don't suck. Get your free strategy audit today.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://www.dorksense.com">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.dorksense.com/">
+    <meta property="og:title" content="DorkSense Media | ROI-Focused Marketing">
+    <meta property="og:description" content="Stop burning cash. Start getting leads. 350+ campaigns managed with 4.3x average ROI.">
+    <meta property="og:image" content="https://placehold.co/1200x630/1a1a1a/ff00ff?text=DorkSense+Media">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://www.dorksense.com/">
+    <meta property="twitter:title" content="DorkSense Media">
+    <meta property="twitter:description" content="Stop burning cash. Start getting leads.">
+    <meta property="twitter:image" content="https://placehold.co/1200x630/1a1a1a/ff00ff?text=DorkSense+Media">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend+Mega:wght@400;700;900&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS (CDN for demo purposes) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Tailwind Configuration -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: 'var(--color-brand)',
+                        bg: 'var(--color-bg)',
+                        text: 'var(--color-text)',
+                        panel: 'var(--color-panel)',
+                        border: 'var(--color-border)',
+                    },
+                    fontFamily: {
+                        display: ['"Lexend Mega"', 'sans-serif'],
+                        mono: ['"Space Mono"', 'monospace'],
+                    },
+                    boxShadow: {
+                        'neo': 'var(--shadow-offset) var(--shadow-offset) 0px 0px var(--color-border)',
+                        'neo-hover': '2px 2px 0px 0px var(--color-border)',
+                        'neo-lg': '8px 8px 0px 0px var(--color-border)',
+                    },
+                    animation: {
+                        'marquee': 'marquee 25s linear infinite',
+                    },
+                    keyframes: {
+                        marquee: {
+                            '0%': { transform: 'translateX(0%)' },
+                            '100%': { transform: 'translateX(-100%)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Custom CSS variables for Themes & Animations -->
+    <style>
+        :root {
+            /* Default Dark Theme (Cyber-Brutalist) */
+            --color-bg: #121212;
+            --color-text: #f3f4f6;
+            --color-panel: #1e1e1e;
+            --color-brand: #d946ef; /* Fuchsia */
+            --color-border: #000000; /* In dark mode, we might want light borders or keep black with outline */
+            --shadow-offset: 5px;
+        }
+
+        /* Specific override for borders in dark mode to be visible against dark bg if needed, 
+           but neobrutalism often uses black borders on colored panels. 
+           We will ensure panels contrast well. */
+        
+        [data-theme="dark"] {
+            --color-bg: #0f0f0f;
+            --color-text: #eeeeee;
+            --color-panel: #262626;
+            --color-brand: #ccf381; /* Neon Lime */
+            --color-border: #ffffff; /* White borders for high contrast dark */
+            --shadow-offset: 4px;
+        }
+
+        [data-theme="light"] {
+            --color-bg: #fdfbf7; /* Off-white */
+            --color-text: #111827;
+            --color-panel: #ffffff;
+            --color-brand: #3b82f6; /* Bright Blue */
+            --color-border: #000000;
+            --shadow-offset: 5px;
+        }
+
+        [data-theme="neon"] {
+            --color-bg: #2e0228; /* Deep purple */
+            --color-text: #ffffff;
+            --color-panel: #ff00ff; /* Magenta panel */
+            --color-brand: #00ffff; /* Cyan text/accents */
+            --color-border: #000000;
+            --shadow-offset: 6px;
+        }
+
+        /* Base Utilities */
+        body {
+            background-color: var(--color-bg);
+            color: var(--color-text);
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        
+        .border-neo {
+            border: 2px solid var(--color-border);
+        }
+
+        .neo-btn {
+            transition: all 0.1s ease;
+        }
+        
+        .neo-btn:active {
+            transform: translate(var(--shadow-offset), var(--shadow-offset));
+            box-shadow: none !important;
+        }
+
+        /* Scroll Animation Classes */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
+        }
+        
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Pattern overlay for texture */
+        .texture-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 50;
+            opacity: 0.03;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+        }
+    </style>
+
+    <!-- JSON-LD Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "DigitalMarketingAgency",
+      "name": "DorkSense Media",
+      "image": "https://www.dorksense.com/logo.png",
+      "description": "Bold digital marketing strategies, SEO, and paid media.",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "123 Creative Blvd",
+        "addressLocality": "Austin",
+        "addressRegion": "TX",
+        "postalCode": "78701",
+        "addressCountry": "US"
+      },
+      "priceRange": "$$$"
+    }
+    </script>
+</head>
+<body class="font-mono overflow-x-hidden selection:bg-brand selection:text-black" data-theme="dark">
+
+    <!-- Texture Grain Overlay -->
+    <div class="texture-overlay"></div>
+
+    <!-- Theme Switcher Fixed Widget -->
+    <div class="fixed bottom-6 right-6 z-50 flex flex-col gap-2 p-2 border-neo bg-panel shadow-neo">
+        <button onclick="setTheme('dark')" class="w-8 h-8 rounded-full bg-[#121212] border border-white focus:outline-none focus:ring-2 focus:ring-brand" aria-label="Dark Theme"></button>
+        <button onclick="setTheme('light')" class="w-8 h-8 rounded-full bg-[#fdfbf7] border border-black focus:outline-none focus:ring-2 focus:ring-brand" aria-label="Light Theme"></button>
+        <button onclick="setTheme('neon')" class="w-8 h-8 rounded-full bg-[#2e0228] border border-cyan-400 focus:outline-none focus:ring-2 focus:ring-brand" aria-label="Neon Theme"></button>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-40 top-0 bg-bg/90 backdrop-blur-sm border-b-2 border-border">
+        <div class="container mx-auto px-4 md:px-8 h-20 flex items-center justify-between">
+            <a href="#" class="font-display font-black text-2xl md:text-3xl tracking-tighter hover:text-brand transition-colors">
+                DORKSENSE<span class="text-brand">.</span>
+            </a>
+            
+            <div class="hidden md:flex gap-8 font-bold text-sm uppercase tracking-widest">
+                <a href="#services" class="hover:underline decoration-brand decoration-4 underline-offset-4">Services</a>
+                <a href="#work" class="hover:underline decoration-brand decoration-4 underline-offset-4">Work</a>
+                <a href="#pricing" class="hover:underline decoration-brand decoration-4 underline-offset-4">Pricing</a>
+            </div>
+
+            <a href="#contact" class="hidden md:block px-6 py-2 bg-brand text-black font-bold uppercase border-neo shadow-neo hover:shadow-neo-hover neo-btn text-sm">
+                Get Strategy
+            </a>
+
+            <!-- Mobile Menu Button -->
+            <button class="md:hidden p-2" aria-label="Open Menu">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="square" stroke-linejoin="miter" stroke-width="3" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+            </button>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <header class="relative pt-32 pb-20 md:pt-48 md:pb-32 container mx-auto px-4 md:px-8 overflow-hidden">
+        <div class="relative z-10 max-w-5xl">
+            <div class="inline-block px-3 py-1 mb-6 border-2 border-brand text-brand font-bold uppercase text-xs tracking-widest reveal">
+                Accepting New Clients for Q4
+            </div>
+            
+            <h1 class="font-display text-5xl md:text-7xl lg:text-9xl font-black uppercase leading-[0.9] tracking-tighter mb-8 reveal" style="transition-delay: 100ms;">
+                We Make Ads <br>
+                That Don't <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand to-white stroke-text">Suck.</span>
+            </h1>
+
+            <p class="font-mono text-lg md:text-xl max-w-2xl mb-10 opacity-90 reveal" style="transition-delay: 200ms;">
+                Measured. Optimized. Obvious. We stop you from burning cash and start getting you actual qualified leads. 350+ campaigns managed with 4.3x average ROI.
+            </p>
+
+            <div class="flex flex-col sm:flex-row gap-4 reveal" style="transition-delay: 300ms;">
+                <a href="#contact" class="px-8 py-4 bg-brand text-black font-display font-bold text-lg uppercase border-neo shadow-neo hover:shadow-neo-hover neo-btn text-center">
+                    Book Strategy Call
+                </a>
+                <a href="#work" class="px-8 py-4 bg-transparent border-2 border-text text-text font-display font-bold text-lg uppercase hover:bg-text hover:text-bg transition-colors text-center">
+                    See the Damage
+                </a>
+            </div>
+        </div>
+
+        <!-- Abstract Decorative Elements -->
+        <div class="absolute top-20 right-0 w-64 h-64 bg-brand rounded-full blur-[100px] opacity-20 pointer-events-none mix-blend-screen"></div>
+        <div class="absolute bottom-10 left-10 w-40 h-40 border-4 border-text opacity-10 rotate-12 pointer-events-none"></div>
+    </header>
+
+    <!-- MARQUEE / LOGOS -->
+    <div class="w-full bg-brand text-black border-y-2 border-black overflow-hidden py-4">
+        <div class="whitespace-nowrap flex animate-marquee font-display font-black text-2xl uppercase">
+            <span class="mx-8">SEO That Ranks</span> • 
+            <span class="mx-8">PPC That Converts</span> • 
+            <span class="mx-8">Content That Kills</span> • 
+            <span class="mx-8">Growth Hacking</span> • 
+            <span class="mx-8">No BS Reporting</span> • 
+            <span class="mx-8">SEO That Ranks</span> • 
+            <span class="mx-8">PPC That Converts</span> • 
+            <span class="mx-8">Content That Kills</span> • 
+            <span class="mx-8">Growth Hacking</span> • 
+            <span class="mx-8">No BS Reporting</span> • 
+        </div>
+    </div>
+
+    <!-- REAL TIME STATS -->
+    <section class="py-20 border-b-2 border-border bg-panel text-text" aria-label="Agency Statistics">
+        <div class="container mx-auto px-4 grid grid-cols-2 md:grid-cols-4 gap-8">
+            <div class="text-center reveal">
+                <div class="font-display text-4xl md:text-6xl font-black mb-2 counter" data-target="350">0</div>
+                <div class="font-mono text-sm uppercase opacity-70">Campaigns Launched</div>
+            </div>
+            <div class="text-center reveal" style="transition-delay: 100ms;">
+                <div class="font-display text-4xl md:text-6xl font-black mb-2 flex justify-center items-center gap-1">
+                    <span class="text-brand">$</span><span class="counter" data-target="12">0</span>M
+                </div>
+                <div class="font-mono text-sm uppercase opacity-70">Ad Spend Managed</div>
+            </div>
+            <div class="text-center reveal" style="transition-delay: 200ms;">
+                <div class="font-display text-4xl md:text-6xl font-black mb-2 flex justify-center items-center gap-1">
+                    <span class="counter" data-target="430">0</span>%
+                </div>
+                <div class="font-mono text-sm uppercase opacity-70">Avg. ROI</div>
+            </div>
+            <div class="text-center reveal" style="transition-delay: 300ms;">
+                <div class="font-display text-4xl md:text-6xl font-black mb-2 flex justify-center items-center gap-1">
+                    <span class="counter" data-target="85">0</span>+
+                </div>
+                <div class="font-mono text-sm uppercase opacity-70">Happy Clients</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section id="services" class="py-24 container mx-auto px-4 md:px-8">
+        <div class="flex flex-col md:flex-row justify-between items-end mb-16 reveal">
+            <h2 class="font-display text-4xl md:text-6xl font-black uppercase max-w-xl">
+                We Do The <span class="bg-brand text-black px-2">Hard Work</span>
+            </h2>
+            <p class="font-mono mt-4 md:mt-0 max-w-md text-right">
+                Full-stack digital dominance. No fluff, just results.
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <!-- Service Card 1 -->
+            <article class="group bg-panel border-neo p-8 hover:-translate-y-2 hover:shadow-neo-lg transition-all duration-300 reveal cursor-pointer">
+                <div class="w-12 h-12 bg-text text-bg flex items-center justify-center font-bold text-2xl mb-6 group-hover:bg-brand group-hover:text-black transition-colors">
+                    01
+                </div>
+                <h3 class="font-display text-2xl font-bold mb-4 uppercase">Paid Media</h3>
+                <ul class="font-mono text-sm space-y-2 mb-8 opacity-80">
+                    <li>+ Facebook/IG Ads</li>
+                    <li>+ Google Search & Shopping</li>
+                    <li>+ TikTok Scaling</li>
+                    <li>+ Retargeting Flows</li>
+                </ul>
+                <button onclick="openLeadModal('Paid Media')" class="w-full py-2 border-2 border-text font-bold uppercase hover:bg-text hover:text-bg transition-colors">Start Project</button>
+            </article>
+
+            <!-- Service Card 2 -->
+            <article class="group bg-panel border-neo p-8 hover:-translate-y-2 hover:shadow-neo-lg transition-all duration-300 reveal cursor-pointer" style="transition-delay: 100ms;">
+                <div class="w-12 h-12 bg-text text-bg flex items-center justify-center font-bold text-2xl mb-6 group-hover:bg-brand group-hover:text-black transition-colors">
+                    02
+                </div>
+                <h3 class="font-display text-2xl font-bold mb-4 uppercase">SEO & Content</h3>
+                <ul class="font-mono text-sm space-y-2 mb-8 opacity-80">
+                    <li>+ Technical Audits</li>
+                    <li>+ Backlink Building</li>
+                    <li>+ Content Strategy</li>
+                    <li>+ Local Domination</li>
+                </ul>
+                <button onclick="openLeadModal('SEO')" class="w-full py-2 border-2 border-text font-bold uppercase hover:bg-text hover:text-bg transition-colors">Start Project</button>
+            </article>
+
+            <!-- Service Card 3 -->
+            <article class="group bg-panel border-neo p-8 hover:-translate-y-2 hover:shadow-neo-lg transition-all duration-300 reveal cursor-pointer" style="transition-delay: 200ms;">
+                <div class="w-12 h-12 bg-text text-bg flex items-center justify-center font-bold text-2xl mb-6 group-hover:bg-brand group-hover:text-black transition-colors">
+                    03
+                </div>
+                <h3 class="font-display text-2xl font-bold mb-4 uppercase">Creative</h3>
+                <ul class="font-mono text-sm space-y-2 mb-8 opacity-80">
+                    <li>+ High-CTR Ad Design</li>
+                    <li>+ Video Production</li>
+                    <li>+ Landing Pages</li>
+                    <li>+ Copywriting</li>
+                </ul>
+                <button onclick="openLeadModal('Creative')" class="w-full py-2 border-2 border-text font-bold uppercase hover:bg-text hover:text-bg transition-colors">Start Project</button>
+            </article>
+
+            <!-- Service Card 4 -->
+            <article class="group bg-panel border-neo p-8 hover:-translate-y-2 hover:shadow-neo-lg transition-all duration-300 reveal cursor-pointer" style="transition-delay: 300ms;">
+                <div class="w-12 h-12 bg-text text-bg flex items-center justify-center font-bold text-2xl mb-6 group-hover:bg-brand group-hover:text-black transition-colors">
+                    04
+                </div>
+                <h3 class="font-display text-2xl font-bold mb-4 uppercase">Strategy</h3>
+                <ul class="font-mono text-sm space-y-2 mb-8 opacity-80">
+                    <li>+ Funnel Architecture</li>
+                    <li>+ CRO (Conversion Rate)</li>
+                    <li>+ Email Automation</li>
+                    <li>+ Analytics Setup</li>
+                </ul>
+                <button onclick="openLeadModal('Strategy')" class="w-full py-2 border-2 border-text font-bold uppercase hover:bg-text hover:text-bg transition-colors">Start Project</button>
+            </article>
+        </div>
+    </section>
+
+    <!-- CASE STUDIES -->
+    <section id="work" class="py-24 border-t-2 border-border bg-panel text-text">
+        <div class="container mx-auto px-4 md:px-8">
+            <h2 class="font-display text-4xl md:text-6xl font-black uppercase mb-12 reveal">Proof <span class="text-brand">Is In The Pudding</span></h2>
+            
+            <!-- Filters -->
+            <div class="flex flex-wrap gap-4 mb-12 reveal">
+                <button class="filter-btn active px-4 py-2 border-2 border-text bg-text text-bg font-bold uppercase" data-filter="all">All</button>
+                <button class="filter-btn px-4 py-2 border-2 border-text hover:bg-brand hover:border-brand font-bold uppercase transition-colors" data-filter="tech">SaaS</button>
+                <button class="filter-btn px-4 py-2 border-2 border-text hover:bg-brand hover:border-brand font-bold uppercase transition-colors" data-filter="ecom">E-Comm</button>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8" id="portfolio-grid">
+                <!-- Project 1 -->
+                <div class="portfolio-item ecom group relative border-neo aspect-video overflow-hidden reveal cursor-pointer" onclick="openCaseStudy('NeonKicks')">
+                    <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=800&q=80" alt="Sneaker Campaign" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 grayscale group-hover:grayscale-0">
+                    <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-center items-center text-center p-6">
+                        <h3 class="font-display text-3xl font-bold text-white mb-2">NeonKicks</h3>
+                        <p class="font-mono text-brand mb-4">ROAS: 5.2x | Scale: $50k/mo</p>
+                        <span class="px-6 py-2 bg-white text-black font-bold uppercase text-sm">View Case Study</span>
+                    </div>
+                    <div class="absolute top-4 left-4 bg-brand text-black font-bold px-3 py-1 text-xs uppercase">E-Commerce</div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="portfolio-item tech group relative border-neo aspect-video overflow-hidden reveal" style="transition-delay: 100ms;" onclick="openCaseStudy('CloudScale')">
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80" alt="SaaS Dashboard" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 grayscale group-hover:grayscale-0">
+                    <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-center items-center text-center p-6">
+                        <h3 class="font-display text-3xl font-bold text-white mb-2">CloudScale</h3>
+                        <p class="font-mono text-brand mb-4">Leads: +240% | CPA: -40%</p>
+                        <span class="px-6 py-2 bg-white text-black font-bold uppercase text-sm">View Case Study</span>
+                    </div>
+                    <div class="absolute top-4 left-4 bg-brand text-black font-bold px-3 py-1 text-xs uppercase">SaaS / B2B</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PRICING & CALCULATOR -->
+    <section id="pricing" class="py-24 container mx-auto px-4 md:px-8">
+        <h2 class="font-display text-4xl md:text-6xl font-black uppercase mb-8 text-center reveal">Pricing Models</h2>
+        
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
+            
+            <!-- Standard Pricing Cards -->
+            <div class="lg:col-span-2 grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Card 1 -->
+                <div class="border-neo p-8 bg-panel relative reveal">
+                    <h3 class="font-display text-2xl font-bold mb-2">Growth</h3>
+                    <div class="font-mono text-4xl font-bold mb-6">$2,500<span class="text-sm font-normal opacity-70">/mo</span></div>
+                    <p class="font-mono text-sm mb-6 border-b border-border pb-4 opacity-80">Perfect for startups ready to scale.</p>
+                    <ul class="space-y-3 font-mono text-sm mb-8">
+                        <li class="flex items-center gap-2"><span class="text-brand">✓</span> 1 Channel (FB or Google)</li>
+                        <li class="flex items-center gap-2"><span class="text-brand">✓</span> Weekly Optimization</li>
+                        <li class="flex items-center gap-2"><span class="text-brand">✓</span> Monthly Reporting</li>
+                        <li class="flex items-center gap-2"><span class="text-brand">✓</span> Ad Creative Design</li>
+                    </ul>
+                    <a href="#contact" class="block w-full text-center py-3 bg-text text-bg font-bold uppercase hover:bg-brand hover:text-black transition-colors">Select Plan</a>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="border-neo p-8 bg-panel relative border-brand reveal" style="transition-delay: 100ms;">
+                    <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-brand text-black px-4 py-1 text-xs font-bold uppercase border border-black">Most Popular</div>
+                    <h3 class="font-display text-2xl font-bold mb-2">Domination</h3>
+                    <div class="font-mono text-4xl font-bold mb-6">$5,000<span class="text-sm font-normal opacity-70">/mo</span></div>
+                    <p class="font-mono text-sm mb-6 border-b border-border pb-4 opacity-80">Full-service aggression.</p>
+                    <ul class="space-y-3 font-mono text-sm mb-8">
+                        <li class="flex items-center gap-2"><span class="text-brand">✓</span> Multi-Channel Strategy</li>
+                        <li class="flex items-center gap-2"><span class="text-brand">✓</span> Daily Optimization</li>
+                        <li class="flex items-center gap-2"><span class="text-brand">✓</span> Live Dashboard</li>
+                        <li class="flex items-center gap-2"><span class="text-brand">✓</span> CRO Landing Pages</li>
+                    </ul>
+                    <a href="#contact" class="block w-full text-center py-3 bg-brand text-black border border-black font-bold uppercase shadow-[4px_4px_0px_black] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_black] transition-all">Select Plan</a>
+                </div>
+            </div>
+
+            <!-- Interactive Calculator -->
+            <div class="bg-panel border-neo p-8 lg:h-full flex flex-col justify-center reveal" style="transition-delay: 200ms;">
+                <h3 class="font-display text-xl font-bold mb-6 uppercase border-b-2 border-border pb-2">Custom Estimator</h3>
+                
+                <label class="font-mono text-xs font-bold uppercase mb-2 block">Monthly Ad Spend Budget</label>
+                <input type="range" min="1000" max="50000" step="1000" value="10000" id="spendSlider" class="w-full h-2 bg-text rounded-lg appearance-none cursor-pointer mb-4 accent-brand">
+                <div class="font-mono text-right mb-6 font-bold text-brand" id="spendValue">$10,000</div>
+
+                <div class="flex justify-between items-center mb-2">
+                    <span class="font-mono text-sm">Management Fee (Est.)</span>
+                    <span class="font-display font-bold text-xl" id="feeValue">$1,500</span>
+                </div>
+                <div class="text-xs font-mono opacity-60 mb-6">*Based on 15% spend model + base retainer</div>
+
+                <a href="#contact" class="mt-auto block w-full text-center py-3 border-2 border-text text-text font-bold uppercase hover:bg-text hover:text-bg transition-colors">Get Custom Quote</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section class="py-20 border-y-2 border-border bg-brand text-black">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                <div class="font-display text-4xl font-black uppercase leading-tight reveal">
+                    "DorkSense didn't just run ads. They fixed our entire sales funnel. Revenue is up 210% YoY."
+                </div>
+                <div class="flex items-center gap-4 reveal" style="transition-delay: 100ms;">
+                    <img src="https://i.pravatar.cc/150?img=68" alt="CEO Face" class="w-16 h-16 rounded-none border-2 border-black">
+                    <div>
+                        <div class="font-bold font-display text-lg">Sarah Jenkins</div>
+                        <div class="font-mono text-sm opacity-80">CMO, TechFlow Inc.</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Trust Badges -->
+            <div class="flex flex-wrap justify-center gap-8 mt-16 opacity-70 grayscale mix-blend-multiply">
+                <!-- Simple SVG Placeholders for logos -->
+                <svg class="h-8" viewBox="0 0 100 30" fill="currentColor"><path d="M10,5 L20,25 L30,5 M40,5 L40,25 M50,5 L70,5 M60,5 L60,25 M80,5 L100,5 L80,25 L100,25" stroke="currentColor" stroke-width="3"/></svg>
+                <svg class="h-8" viewBox="0 0 100 30" fill="currentColor"><circle cx="15" cy="15" r="10"/><rect x="35" y="5" width="20" height="20"/><path d="M70,25 L80,5 L90,25" stroke="currentColor" stroke-width="3"/></svg>
+                <svg class="h-8" viewBox="0 0 100 30" fill="currentColor"><rect x="5" y="10" width="90" height="10"/></svg>
+            </div>
+        </div>
+    </section>
+
+    <!-- BLOG / INSIGHTS -->
+    <section class="py-24 container mx-auto px-4 md:px-8">
+        <div class="flex justify-between items-center mb-12 reveal">
+            <h2 class="font-display text-3xl md:text-5xl font-black uppercase">Latest Rants</h2>
+            <a href="#" class="hidden md:block font-mono text-sm underline decoration-brand decoration-2 underline-offset-4">Read all articles</a>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <article class="group reveal cursor-pointer">
+                <div class="h-48 bg-gray-800 mb-4 overflow-hidden border-neo">
+                    <img src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&w=600&q=80" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" alt="Blog Thumb">
+                </div>
+                <div class="text-xs font-mono text-brand mb-2">Strategies</div>
+                <h3 class="font-display font-bold text-xl mb-2 group-hover:text-brand transition-colors">Why Your ROAS is Lying to You</h3>
+                <p class="font-mono text-sm opacity-70">Vanity metrics are killing your budget. Here is what to track instead.</p>
+            </article>
+
+            <article class="group reveal cursor-pointer" style="transition-delay: 100ms;">
+                <div class="h-48 bg-gray-800 mb-4 overflow-hidden border-neo">
+                    <img src="https://images.unsplash.com/photo-1562577309-4932fdd64cd1?auto=format&fit=crop&w=600&q=80" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" alt="Blog Thumb">
+                </div>
+                <div class="text-xs font-mono text-brand mb-2">Content</div>
+                <h3 class="font-display font-bold text-xl mb-2 group-hover:text-brand transition-colors">SEO is Dead (Again)</h3>
+                <p class="font-mono text-sm opacity-70">Just kidding. But the way you do it needs to change for AI search.</p>
+            </article>
+
+            <article class="group reveal cursor-pointer" style="transition-delay: 200ms;">
+                <div class="h-48 bg-gray-800 mb-4 overflow-hidden border-neo">
+                    <img src="https://images.unsplash.com/photo-1535303311164-664fc9ec6532?auto=format&fit=crop&w=600&q=80" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" alt="Blog Thumb">
+                </div>
+                <div class="text-xs font-mono text-brand mb-2">Social</div>
+                <h3 class="font-display font-bold text-xl mb-2 group-hover:text-brand transition-colors">TikTok for B2B?</h3>
+                <p class="font-mono text-sm opacity-70">Yes, it works. No, you don't have to dance.</p>
+            </article>
+        </div>
+    </section>
+
+    <!-- CONTACT / LEAD CAPTURE -->
+    <section id="contact" class="py-24 bg-panel border-t-2 border-border relative overflow-hidden">
+        <div class="container mx-auto px-4 relative z-10">
+            <div class="max-w-4xl mx-auto border-neo bg-bg p-8 md:p-12 shadow-neo-lg">
+                <div class="text-center mb-10">
+                    <h2 class="font-display text-3xl md:text-5xl font-black uppercase mb-4">Let's Get Rich Together</h2>
+                    <p class="font-mono opacity-80">Fill this out. We'll audit your setup. If we can't help, we'll tell you.</p>
+                </div>
+
+                <form id="leadForm" class="space-y-6" onsubmit="handleFormSubmit(event)">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="relative">
+                            <label class="font-mono text-xs font-bold uppercase mb-1 block">Name</label>
+                            <input type="text" required class="w-full bg-transparent border-2 border-border p-4 font-mono focus:border-brand focus:outline-none transition-colors placeholder-opacity-50" placeholder="John Doe">
+                        </div>
+                        <div class="relative">
+                            <label class="font-mono text-xs font-bold uppercase mb-1 block">Email</label>
+                            <input type="email" required class="w-full bg-transparent border-2 border-border p-4 font-mono focus:border-brand focus:outline-none transition-colors" placeholder="john@company.com">
+                        </div>
+                    </div>
+
+                    <div class="relative">
+                        <label class="font-mono text-xs font-bold uppercase mb-1 block">Website URL</label>
+                        <input type="url" class="w-full bg-transparent border-2 border-border p-4 font-mono focus:border-brand focus:outline-none transition-colors" placeholder="https://">
+                    </div>
+
+                    <div class="relative">
+                        <label class="font-mono text-xs font-bold uppercase mb-1 block">Monthly Budget</label>
+                        <select class="w-full bg-transparent border-2 border-border p-4 font-mono focus:border-brand focus:outline-none transition-colors appearance-none cursor-pointer">
+                            <option value="" disabled selected>Select Range...</option>
+                            <option value="s">< $5k/mo</option>
+                            <option value="m">$5k - $20k/mo</option>
+                            <option value="l">$20k - $50k/mo</option>
+                            <option value="xl">$50k+/mo</option>
+                        </select>
+                        <div class="absolute right-4 top-10 pointer-events-none">▼</div>
+                    </div>
+
+                    <!-- Honeypot -->
+                    <input type="text" name="honeypot" class="hidden">
+
+                    <button type="submit" class="w-full py-4 bg-brand text-black font-display font-black text-xl uppercase border-neo shadow-neo hover:shadow-neo-hover neo-btn mt-8">
+                        Send It 🚀
+                    </button>
+                    
+                    <p class="text-center font-mono text-xs opacity-50 pt-4">No spam. We're too busy for that.</p>
+                </form>
+
+                <!-- Success State (Hidden by default) -->
+                <div id="formSuccess" class="hidden text-center py-10">
+                    <div class="text-6xl mb-4">🎉</div>
+                    <h3 class="font-display text-3xl font-bold uppercase mb-4">We Got It.</h3>
+                    <p class="font-mono mb-8">Check your inbox. Our team is already looking at your site (creepy, we know).</p>
+                    <a href="#" class="inline-block px-8 py-3 border-2 border-text font-bold uppercase hover:bg-text hover:text-bg">Book A Call Now</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-black text-white pt-20 pb-10 border-t-2 border-gray-800">
+        <div class="container mx-auto px-4 md:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
+                <div class="col-span-1 md:col-span-2">
+                    <a href="#" class="font-display font-black text-3xl tracking-tighter hover:text-brand transition-colors block mb-6">
+                        DORKSENSE<span class="text-brand">.</span>
+                    </a>
+                    <p class="font-mono text-sm max-w-sm text-gray-400">
+                        A digital marketing agency for brands that want to dominate, not just participate. Austin, TX based, globally hated by competitors.
+                    </p>
+                </div>
+                <div>
+                    <h4 class="font-bold font-display uppercase mb-6 text-brand">Explore</h4>
+                    <ul class="font-mono text-sm space-y-3 text-gray-400">
+                        <li><a href="#services" class="hover:text-white transition-colors">Services</a></li>
+                        <li><a href="#work" class="hover:text-white transition-colors">Work</a></li>
+                        <li><a href="#pricing" class="hover:text-white transition-colors">Pricing</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Blog</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold font-display uppercase mb-6 text-brand">Legal</h4>
+                    <ul class="font-mono text-sm space-y-3 text-gray-400">
+                        <li><a href="#" class="hover:text-white transition-colors">Privacy Policy</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Terms of Service</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Accessibility</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="flex flex-col md:flex-row justify-between items-center pt-8 border-t border-gray-800 font-mono text-xs text-gray-500">
+                <div>© 2024 DorkSense Media. All rights reserved.</div>
+                <div class="flex gap-4 mt-4 md:mt-0">
+                    <a href="#" class="hover:text-brand">TW</a>
+                    <a href="#" class="hover:text-brand">IG</a>
+                    <a href="#" class="hover:text-brand">LI</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Lead / Project Modal -->
+    <div id="projectModal" class="fixed inset-0 z-50 hidden">
+        <div class="absolute inset-0 bg-black/80 backdrop-blur-sm" onclick="closeLeadModal()"></div>
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-lg bg-panel border-neo p-8 shadow-2xl">
+            <button onclick="closeLeadModal()" class="absolute top-4 right-4 font-bold text-2xl hover:text-brand">&times;</button>
+            <h3 class="font-display text-2xl font-bold uppercase mb-2">Let's Talk <span id="modalService" class="text-brand">Strategy</span></h3>
+            <p class="font-mono text-sm mb-6 opacity-80">Tell us what you need. Be specific.</p>
+            <textarea class="w-full h-32 bg-bg border-2 border-border p-4 font-mono mb-4 focus:border-brand focus:outline-none" placeholder="I need help with..."></textarea>
+            <button onclick="closeLeadModal()" class="w-full py-3 bg-brand text-black font-bold uppercase border-neo hover:shadow-neo-hover neo-btn">Submit Request</button>
+        </div>
+    </div>
+
+    <!-- Analytics Placeholders (Inactive) -->
+    <!-- 
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-XXXXXXXXXX');
+    </script>
+    -->
+
+    <script>
+        // --- 1. THEME SWITCHER LOGIC ---
+        function setTheme(themeName) {
+            document.body.setAttribute('data-theme', themeName);
+            localStorage.setItem('theme', themeName);
+        }
+        
+        // Load saved theme
+        (function() {
+            const savedTheme = localStorage.getItem('theme') || 'dark';
+            setTheme(savedTheme);
+        })();
+
+        // --- 2. SCROLL ANIMATIONS (IntersectionObserver) ---
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: "0px 0px -50px 0px"
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+        // --- 3. COUNTER ANIMATION ---
+        const counterObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const counters = entry.target.querySelectorAll('.counter');
+                    counters.forEach(counter => {
+                        const target = +counter.getAttribute('data-target');
+                        const duration = 2000; 
+                        const increment = target / (duration / 16); 
+                        
+                        let current = 0;
+                        const updateCounter = () => {
+                            current += increment;
+                            if (current < target) {
+                                counter.innerText = Math.ceil(current);
+                                requestAnimationFrame(updateCounter);
+                            } else {
+                                counter.innerText = target;
+                            }
+                        };
+                        updateCounter();
+                    });
+                    counterObserver.unobserve(entry.target);
+                }
+            });
+        });
+
+        const statsSection = document.querySelector('[aria-label="Agency Statistics"]');
+        if(statsSection) counterObserver.observe(statsSection);
+
+        // --- 4. PORTFOLIO FILTERING ---
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const items = document.querySelectorAll('.portfolio-item');
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Update buttons
+                filterBtns.forEach(b => {
+                    b.classList.remove('bg-text', 'text-bg', 'active');
+                    b.classList.add('hover:bg-brand');
+                });
+                btn.classList.add('bg-text', 'text-bg', 'active');
+                btn.classList.remove('hover:bg-brand');
+
+                // Filter items
+                const category = btn.getAttribute('data-filter');
+                items.forEach(item => {
+                    if (category === 'all' || item.classList.contains(category)) {
+                        item.style.display = 'block';
+                        setTimeout(() => item.classList.add('active'), 50); // Re-trigger fade
+                    } else {
+                        item.style.display = 'none';
+                        item.classList.remove('active');
+                    }
+                });
+            });
+        });
+
+        // --- 5. PRICING CALCULATOR ---
+        const slider = document.getElementById('spendSlider');
+        const spendDisplay = document.getElementById('spendValue');
+        const feeDisplay = document.getElementById('feeValue');
+
+        if(slider) {
+            slider.addEventListener('input', (e) => {
+                const val = parseInt(e.target.value);
+                spendDisplay.innerText = '$' + val.toLocaleString();
+                
+                // Simple logic: Base $1000 + 15% of spend
+                const fee = 1000 + (val * 0.15);
+                feeDisplay.innerText = '$' + Math.floor(fee).toLocaleString();
+            });
+        }
+
+        // --- 6. MODAL LOGIC ---
+        function openLeadModal(serviceName) {
+            document.getElementById('modalService').innerText = serviceName;
+            document.getElementById('projectModal').classList.remove('hidden');
+        }
+
+        function closeLeadModal() {
+            document.getElementById('projectModal').classList.add('hidden');
+        }
+
+        // --- 7. FORM HANDLING ---
+        function handleFormSubmit(e) {
+            e.preventDefault();
+            const btn = e.target.querySelector('button[type="submit"]');
+            const originalText = btn.innerText;
+            
+            btn.innerText = "Sending...";
+            btn.disabled = true;
+
+            // Simulate API call
+            setTimeout(() => {
+                document.getElementById('leadForm').classList.add('hidden');
+                document.getElementById('formSuccess').classList.remove('hidden');
+                
+                // Analytics Event (Example)
+                // gtag('event', 'generate_lead', {}); 
+            }, 1500);
+        }
+
+        function openCaseStudy(title) {
+            // In a real app, this would route to a page or open a full modal
+            // For this single-page demo, we'll alert or log
+            console.log("Opening Case Study: " + title);
+        }
+    </script>
+</body>
+</html>
+
