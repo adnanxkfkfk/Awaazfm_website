@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Dorksense - Radical Data Intelligence for the Post-Irony Era.">
+    <title>dorksense_ // raw_logic</title>
+    
+    <!-- Fonts: Lexend Mega (Bold/Geometric) & Space Mono (Raw/Code) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend+Mega:wght@300;700;900&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS (CDN) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Tailwind Configuration -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'void': '#050505',
+                        'paper': '#f4f4f0',
+                        'hyper-lime': '#ccff00',
+                        'hot-purple': '#d946ef',
+                        'safety-orange': '#f97316',
+                        'raw-blue': '#2563eb'
+                    },
+                    fontFamily: {
+                        'display': ['"Lexend Mega"', 'sans-serif'],
+                        'mono': ['"Space Mono"', 'monospace'],
+                    },
+                    boxShadow: {
+                        'neo': '5px 5px 0px 0px #050505',
+                        'neo-lg': '8px 8px 0px 0px #050505',
+                        'neo-sm': '3px 3px 0px 0px #050505',
+                        'neo-hover': '2px 2px 0px 0px #050505',
+                    },
+                    spacing: {
+                        '128': '32rem',
+                    },
+                    animation: {
+                        'marquee': 'marquee 15s linear infinite',
+                        'spin-slow': 'spin 12s linear infinite',
+                    },
+                    keyframes: {
+                        marquee: {
+                            '0%': { transform: 'translateX(0%)' },
+                            '100%': { transform: 'translateX(-100%)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Custom CSS for Noise and Utilities -->
+    <style>
+        /* Base Reset & Smoothness */
+        body {
+            background-color: #f4f4f0;
+            color: #050505;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Noise Overlay */
+        .noise-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 9999;
+            opacity: 0.04;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+        }
+
+        /* Scroll Reveal Utility Classes */
+        .reveal-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .reveal-on-scroll.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 12px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f4f4f0;
+            border-left: 2px solid #050505;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #050505;
+            border: 2px solid #f4f4f0;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #d946ef;
+        }
+
+        /* Text Selection */
+        ::selection {
+            background-color: #050505;
+            color: #ccff00;
+        }
+
+        /* Reduced Motion */
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+                scroll-behavior: auto !important;
+            }
+        }
+    </style>
+</head>
+<body class="font-mono selection:bg-black selection:text-hyper-lime">
+
+    <!-- Noise Texture -->
+    <div class="noise-overlay"></div>
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 bg-paper border-b-4 border-black px-4 py-3 md:px-8 flex justify-between items-center">
+        <div class="flex items-center gap-2">
+            <div class="w-6 h-6 bg-hyper-lime border-2 border-black rotate-45"></div>
+            <a href="#" class="font-display font-black text-2xl tracking-tighter uppercase">dork<span class="text-hot-purple">sense</span>_</a>
+        </div>
+        
+        <!-- Desktop Menu -->
+        <div class="hidden md:flex gap-8 font-bold text-sm">
+            <a href="#features" class="hover:bg-hyper-lime hover:scale-105 transition-transform px-1">PROTOCOL</a>
+            <a href="#about" class="hover:bg-safety-orange hover:scale-105 transition-transform px-1">MANIFESTO</a>
+            <a href="#pricing" class="hover:bg-hot-purple hover:text-white hover:scale-105 transition-transform px-1">PRICING</a>
+        </div>
+
+        <button class="bg-void text-paper px-6 py-2 font-bold border-2 border-transparent hover:bg-hyper-lime hover:text-void hover:border-void hover:shadow-neo transition-all duration-200">
+            GET ACCESS
+        </button>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="relative min-h-screen flex flex-col justify-center items-center pt-20 overflow-hidden border-b-4 border-black">
+        <!-- Background Grid -->
+        <div class="absolute inset-0 z-0 opacity-10" 
+             style="background-image: linear-gradient(#000 2px, transparent 2px), linear-gradient(90deg, #000 2px, transparent 2px); background-size: 40px 40px;">
+        </div>
+
+        <!-- Floating Shapes (Parallax Targets) -->
+        <div class="parallax-element absolute top-1/4 left-10 w-24 h-24 bg-safety-orange border-4 border-black rounded-full z-0 hidden md:block" data-speed="0.2"></div>
+        <div class="parallax-element absolute bottom-1/4 right-10 w-32 h-32 bg-hot-purple border-4 border-black rotate-12 z-0 hidden md:block" data-speed="-0.3"></div>
+
+        <div class="relative z-10 container mx-auto px-4 text-center">
+            <div class="inline-block bg-hyper-lime border-2 border-black px-4 py-1 mb-6 font-bold transform -rotate-2 shadow-neo-sm reveal-on-scroll">
+                V2.0 IS LIVE // NO CAP
+            </div>
+            
+            <h1 class="font-display font-black text-6xl md:text-8xl lg:text-9xl leading-none mb-6 reveal-on-scroll tracking-tighter text-void">
+                MAKE SENSE<br>
+                OF THE <span class="text-stroke text-transparent" style="-webkit-text-stroke: 3px #000; text-stroke: 3px #000;">NOISE</span>
+            </h1>
+
+            <p class="font-mono text-lg md:text-xl max-w-2xl mx-auto mb-10 bg-white border-2 border-black p-4 shadow-neo reveal-on-scroll">
+                We aggregate the chaos of the internet into rigorous, structured datasets. 
+                Stop guessing. Start knowing.
+            </p>
+
+            <div class="flex flex-col md:flex-row gap-4 justify-center items-center reveal-on-scroll">
+                <a href="#start" class="w-full md:w-auto bg-void text-white font-display font-bold text-xl px-8 py-4 border-4 border-void shadow-neo hover:shadow-neo-lg hover:-translate-y-1 hover:bg-hot-purple transition-all">
+                    START MINING
+                </a>
+                <a href="#demo" class="w-full md:w-auto bg-paper text-void font-display font-bold text-xl px-8 py-4 border-4 border-void shadow-neo hover:shadow-neo-lg hover:-translate-y-1 hover:bg-hyper-lime transition-all">
+                    VIEW DEMO
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Marquee Banner -->
+    <div class="w-full bg-hyper-lime border-b-4 border-black py-4 overflow-hidden flex relative z-20">
+        <div class="animate-marquee whitespace-nowrap font-display font-black text-2xl md:text-4xl">
+            DATA IS RAW // STRUCTURE IS POWER // UNFILTERED ANALYTICS // DORKSENSE API // NO FLUFF // JUST BYTES // 
+            DATA IS RAW // STRUCTURE IS POWER // UNFILTERED ANALYTICS // DORKSENSE API // NO FLUFF // JUST BYTES //
+        </div>
+        <div class="absolute top-0 animate-marquee2 whitespace-nowrap font-display font-black text-2xl md:text-4xl hidden">
+             DATA IS RAW // STRUCTURE IS POWER // UNFILTERED ANALYTICS // DORKSENSE API // NO FLUFF // JUST BYTES // 
+        </div>
+    </div>
+
+    <!-- Features Grid -->
+    <section id="features" class="py-24 bg-paper relative z-10">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-16 border-b-4 border-black pb-4 reveal-on-scroll">
+                <h2 class="font-display font-black text-5xl md:text-6xl">THE STACK</h2>
+                <span class="font-mono font-bold bg-black text-white px-2 py-1">SYSTEM_STATUS: ONLINE</span>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- Card 1 -->
+                <article class="group bg-white border-4 border-black p-6 shadow-neo hover:shadow-neo-lg transition-all hover:-translate-y-1 reveal-on-scroll">
+                    <div class="w-12 h-12 bg-safety-orange border-2 border-black mb-6 flex items-center justify-center font-bold text-xl">
+                        01
+                    </div>
+                    <h3 class="font-display font-bold text-2xl mb-4 group-hover:underline decoration-4 decoration-hyper-lime underline-offset-4">RAW INGESTION</h3>
+                    <p class="font-mono text-sm leading-relaxed mb-6">
+                        We scrape everything. Forums, social feeds, dark web signals. If it's digital, we parse it into rigid JSON.
+                    </p>
+                    <ul class="font-mono text-xs space-y-2 border-t-2 border-black pt-4">
+                        <li class="flex items-center gap-2"><span class="w-2 h-2 bg-hyper-lime border border-black"></span> Multi-threaded</li>
+                        <li class="flex items-center gap-2"><span class="w-2 h-2 bg-hyper-lime border border-black"></span> 99.9% Uptime</li>
+                    </ul>
+                </article>
+
+                <!-- Card 2 -->
+                <article class="group bg-white border-4 border-black p-6 shadow-neo hover:shadow-neo-lg transition-all hover:-translate-y-1 reveal-on-scroll" style="transition-delay: 100ms;">
+                    <div class="w-12 h-12 bg-hot-purple border-2 border-black mb-6 flex items-center justify-center font-bold text-xl text-white">
+                        02
+                    </div>
+                    <h3 class="font-display font-bold text-2xl mb-4 group-hover:underline decoration-4 decoration-safety-orange underline-offset-4">SENTIMENT AI</h3>
+                    <p class="font-mono text-sm leading-relaxed mb-6">
+                        Our proprietary ML models don't just read text; they understand irony, sarcasm, and meme culture.
+                    </p>
+                    <ul class="font-mono text-xs space-y-2 border-t-2 border-black pt-4">
+                        <li class="flex items-center gap-2"><span class="w-2 h-2 bg-hot-purple border border-black"></span> Irony Detection</li>
+                        <li class="flex items-center gap-2"><span class="w-2 h-2 bg-hot-purple border border-black"></span> Trend Prediction</li>
+                    </ul>
+                </article>
+
+                <!-- Card 3 -->
+                <article class="group bg-white border-4 border-black p-6 shadow-neo hover:shadow-neo-lg transition-all hover:-translate-y-1 reveal-on-scroll" style="transition-delay: 200ms;">
+                    <div class="w-12 h-12 bg-hyper-lime border-2 border-black mb-6 flex items-center justify-center font-bold text-xl">
+                        03
+                    </div>
+                    <h3 class="font-display font-bold text-2xl mb-4 group-hover:underline decoration-4 decoration-raw-blue underline-offset-4">API ACCESS</h3>
+                    <p class="font-mono text-sm leading-relaxed mb-6">
+                        Direct pipe to your database. REST, GraphQL, or Webhooks. Documentation so good it feels illegal.
+                    </p>
+                    <ul class="font-mono text-xs space-y-2 border-t-2 border-black pt-4">
+                        <li class="flex items-center gap-2"><span class="w-2 h-2 bg-raw-blue border border-black"></span> < 50ms Latency</li>
+                        <li class="flex items-center gap-2"><span class="w-2 h-2 bg-raw-blue border border-black"></span> Rate Limits: High</li>
+                    </ul>
+                </article>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Large Interaction Section -->
+    <section class="py-24 bg-void text-paper border-t-4 border-black overflow-hidden relative">
+        <div class="container mx-auto px-4 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                
+                <div class="reveal-on-scroll">
+                    <h2 class="font-display font-black text-5xl md:text-7xl mb-6 leading-tight">
+                        DATA <br>
+                        <span class="text-hyper-lime">WITHOUT</span><br>
+                        EMOTION.
+                    </h2>
+                    <p class="font-mono text-gray-400 text-lg mb-8 max-w-md">
+                        Stop making decisions based on "vibes". Get the cold, hard, dorky truth delivered to your dashboard.
+                    </p>
+                    <button class="group relative inline-flex items-center justify-start px-8 py-4 overflow-hidden font-bold transition-all bg-white text-black border-2 border-white hover:bg-transparent hover:text-white hover:border-hyper-lime">
+                        <span class="w-full h-48 rounded bg-hyper-lime absolute bottom-0 left-0 translate-y-full ease-out duration-500 transition-all translate-x-full mb-9 ml-9 group-hover:ml-0 group-hover:mb-32 group-hover:translate-x-0"></span>
+                        <span class="relative w-full text-left transition-colors duration-300 ease-in-out group-hover:text-black">READ THE DOCS</span>
+                    </button>
+                </div>
+
+                <!-- Interactive "Terminal" -->
+                <div class="bg-gray-900 border-4 border-gray-700 p-2 rounded-sm shadow-[10px_10px_0px_0px_#333] reveal-on-scroll rotate-2 hover:rotate-0 transition-transform duration-300">
+                    <div class="bg-black p-6 font-mono text-sm md:text-base h-80 overflow-y-auto">
+                        <div class="flex gap-2 mb-4">
+                            <span class="w-3 h-3 rounded-full bg-red-500"></span>
+                            <span class="w-3 h-3 rounded-full bg-yellow-500"></span>
+                            <span class="w-3 h-3 rounded-full bg-green-500"></span>
+                        </div>
+                        <div class="text-green-400 mb-2">$ init dorksense_v2</div>
+                        <div class="text-white mb-2">> Connecting to nodes... <span class="text-blue-400">Done.</span></div>
+                        <div class="text-white mb-2">> Scraping sector 7G... <span class="text-yellow-400">Pending</span></div>
+                        <div class="text-white mb-2">> Analyzing irony levels... <span class="text-red-500">CRITICAL MASS</span></div>
+                        <div class="text-white mb-2">> Generating JSON report...</div>
+                        <br>
+                        <div class="text-gray-500 border-l-2 border-gray-700 pl-4">
+                            {<br>
+                            &nbsp;&nbsp;"trend": "cyber_goth",<br>
+                            &nbsp;&nbsp;"probability": 0.98,<br>
+                            &nbsp;&nbsp;"source": "underground",<br>
+                            &nbsp;&nbsp;"sentiment": "hostile"<br>
+                            }
+                        </div>
+                        <div class="animate-pulse mt-4 text-hyper-lime">_</div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing / CTA -->
+    <section id="pricing" class="py-24 bg-paper relative">
+        <!-- Decoration -->
+        <div class="absolute right-0 top-20 w-32 h-32 bg-stripes opacity-20"></div>
+
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto border-4 border-black bg-white shadow-neo-lg p-8 md:p-12 text-center reveal-on-scroll">
+                <h2 class="font-display font-black text-4xl md:text-6xl mb-6">READY TO GET DORKY?</h2>
+                <div class="flex flex-col md:flex-row justify-center items-center gap-8 mb-8">
+                    <div class="text-left">
+                        <div class="font-mono text-sm text-gray-500">MONTHLY PLAN</div>
+                        <div class="font-display font-black text-5xl text-hot-purple">$29<span class="text-xl text-black">/mo</span></div>
+                    </div>
+                    <div class="h-12 w-1 bg-black hidden md:block"></div>
+                     <div class="text-left">
+                        <div class="font-mono text-sm text-gray-500">LIFETIME ACCESS</div>
+                        <div class="font-display font-black text-5xl text-safety-orange">$420</div>
+                    </div>
+                </div>
+                
+                <form class="flex flex-col md:flex-row gap-4 max-w-lg mx-auto" onsubmit="event.preventDefault(); alert('Welcome to the void.');">
+                    <input type="email" placeholder="ENTER_EMAIL_ADDRESS" 
+                           class="flex-1 bg-paper border-4 border-black p-4 font-mono focus:outline-none focus:ring-4 focus:ring-hyper-lime transition-all"
+                           required>
+                    <button type="submit" 
+                            class="bg-black text-white font-bold px-8 py-4 border-4 border-black hover:bg-hyper-lime hover:text-black hover:shadow-neo transition-all">
+                        SUBMIT
+                    </button>
+                </form>
+                <p class="font-mono text-xs mt-4 text-gray-500">No spam. Only raw logic.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-hyper-lime border-t-4 border-black py-16">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12">
+                <div class="col-span-1 md:col-span-2">
+                    <a href="#" class="font-display font-black text-4xl uppercase mb-4 block">dorksense_</a>
+                    <p class="font-mono font-bold text-sm max-w-sm border-l-4 border-black pl-4">
+                        Building the infrastructure for the next generation of internet explorers. Rough edges included.
+                    </p>
+                </div>
+                <div>
+                    <h4 class="font-display font-bold text-xl mb-4 underline decoration-4 decoration-white">SITEMAP</h4>
+                    <ul class="font-mono space-y-2">
+                        <li><a href="#" class="hover:bg-black hover:text-white px-1">Home</a></li>
+                        <li><a href="#" class="hover:bg-black hover:text-white px-1">About</a></li>
+                        <li><a href="#" class="hover:bg-black hover:text-white px-1">Manifesto</a></li>
+                        <li><a href="#" class="hover:bg-black hover:text-white px-1">Careers</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-display font-bold text-xl mb-4 underline decoration-4 decoration-white">LEGAL</h4>
+                    <ul class="font-mono space-y-2">
+                        <li><a href="#" class="hover:bg-black hover:text-white px-1">Terms of Chaos</a></li>
+                        <li><a href="#" class="hover:bg-black hover:text-white px-1">Privacy (LOL)</a></li>
+                        <li><a href="#" class="hover:bg-black hover:text-white px-1">GDPR Compliance</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="mt-16 pt-8 border-t-4 border-black flex flex-col md:flex-row justify-between items-center font-mono text-xs font-bold">
+                <p>&copy; 2024 DORKSENSE INC. ALL RIGHTS RESERVED.</p>
+                <p>DESIGNED IN THE VOID.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Interaction Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            
+            // 1. Intersection Observer for Reveal Animations
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.1
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        // Optional: Stop observing once revealed
+                        // observer.unobserve(entry.target); 
+                    }
+                });
+            }, observerOptions);
+
+            const revealElements = document.querySelectorAll('.reveal-on-scroll');
+            revealElements.forEach(el => observer.observe(el));
+
+
+            // 2. Parallax Effect
+            // Throttled scrolling for performance
+            let lastScrollTop = 0;
+            let ticking = false;
+
+            window.addEventListener('scroll', function() {
+                lastScrollTop = window.scrollY;
+
+                if (!ticking) {
+                    window.requestAnimationFrame(function() {
+                        applyParallax(lastScrollTop);
+                        ticking = false;
+                    });
+
+                    ticking = true;
+                }
+            });
+
+            function applyParallax(scrollTop) {
+                // Parallax shapes
+                const shapes = document.querySelectorAll('.parallax-element');
+                shapes.forEach(shape => {
+                    const speed = shape.getAttribute('data-speed');
+                    const yPos = -(scrollTop * speed);
+                    shape.style.transform = `translateY(${yPos}px)`;
+                });
+            }
+
+            // 3. Micro-interaction: Magnet Effect on Buttons (Subtle)
+            const buttons = document.querySelectorAll('button, a.btn');
+            
+            buttons.forEach(btn => {
+                btn.addEventListener('mousemove', (e) => {
+                    const rect = btn.getBoundingClientRect();
+                    const x = e.clientX - rect.left - rect.width / 2;
+                    const y = e.clientY - rect.top - rect.height / 2;
+                    
+                    // Only apply if user doesn't prefer reduced motion
+                    if(!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                        btn.style.transform = `translate(${x * 0.1}px, ${y * 0.1}px)`;
+                    }
+                });
+
+                btn.addEventListener('mouseleave', () => {
+                    btn.style.transform = 'translate(0, 0)';
+                });
+            });
+        });
+    </script>
+</body>
+</html>
+
