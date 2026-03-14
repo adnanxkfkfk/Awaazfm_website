@@ -1,6 +1,6 @@
 {
   "rewrites": [
-    { "source": "/s/:code", "destination": "./index.html" }
+    { "source": "/s/:code", "destination": "/s/index.html" }
   ],
   "headers": [
     {
