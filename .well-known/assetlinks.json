@@ -1,0 +1,11 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.rapidredy.radio.awaazfm",
+      "sha256_cert_fingerprints":
+        ["B4:49:14:A3:20:A4:1C:16:5C:CA:C5:C4:12:B8:A0:AA:24:A8:A0:A1:0B:5E:E2:97:9B:AA:D1:1D:F4:F3:99:AF"]
+    }
+  }
+]
